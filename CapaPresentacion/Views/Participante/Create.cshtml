@@ -1,0 +1,53 @@
+﻿
+@model CapaEntidades.Participante
+
+@{
+    ViewBag.Title = "Create Participante";
+}
+
+<h2>Create Participante</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdProyecto)
+        @Html.TextBoxFor(model => model.IdProyecto, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombres)
+        @Html.TextBoxFor(model => model.Nombres, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Apellidos)
+        @Html.TextBoxFor(model => model.Apellidos, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DocumentoIdentidad)
+        @Html.TextBoxFor(model => model.DocumentoIdentidad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TipoDocumento)
+        @Html.TextBoxFor(model => model.TipoDocumento, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Direccion)
+        @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.FechaInscripcion)
+        @Html.TextBoxFor(model => model.FechaInscripcion, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Celular)
+        @Html.TextBoxFor(model => model.Celular, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Estado)
+        @Html.CheckBoxFor(model => model.Estado, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
