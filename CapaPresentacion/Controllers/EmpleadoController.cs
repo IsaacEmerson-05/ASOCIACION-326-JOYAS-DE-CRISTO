@@ -6,15 +6,14 @@ using System.Web.Mvc;
 using CapaAplicacion;
 using CapaEntidades;
 
-
 namespace CapaPresentacion.Controllers
 {
-    public class ParticipanteController : Controller
+    public class EmpleadoController : Controller
     {
         public ActionResult Index()
         {
-            var participantes = appParticipante.Instancia.ListarParticipantes();
-            return View(participantes);
+            var empleados = appEmpleado.Instancia.ListarEmpleados();
+            return View(empleados);
         }
 
         public ActionResult Crear()
@@ -23,19 +22,19 @@ namespace CapaPresentacion.Controllers
         }
 
         [HttpPost]
-        public ActionResult Crear(Participante participante)
+        public ActionResult Crear(Empleado empleado)
         {
             if (ModelState.IsValid)
             {
-                appParticipante.Instancia.InsertarParticipante(participante);
+                appEmpleado.Instancia.InsertarEmpleado(empleado);
                 return RedirectToAction("Index");
             }
-            return View(participante);
+            return View(empleado);
         }
 
         public ActionResult Eliminar(int id)
         {
-            appParticipante.Instancia.EliminarParticipante(id);
+            appEmpleado.Instancia.EliminarEmpleado(id);
             return RedirectToAction("Index");
         }
     }
