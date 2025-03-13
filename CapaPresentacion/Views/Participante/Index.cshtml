@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CapaEntidades.Participante>
+
+@{
+    ViewBag.Title = "Lista de Participantes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Participantes</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var participante in Model)
+        {
+            <tr>
+                <td>@participante.IdParticipante</td>
+                <td>@participante.Nombres</td>
+                <td>
+                    <a href="/Participante/Eliminar/@participante.IdParticipante" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

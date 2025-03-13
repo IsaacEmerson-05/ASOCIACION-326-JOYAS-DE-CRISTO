@@ -7,13 +7,14 @@ using CapaAplicacion;
 using CapaEntidades;
 
 
+
 namespace CapaPresentacion.Controllers
 {
     public class ParticipanteController : Controller
     {
         public ActionResult Index()
         {
-            var participantes = appParticipante.Instancia.ListarParticipantes();
+            var participantes = AppParticipante.Instancia.ListarParticipante();
             return View(participantes);
         }
 
@@ -27,7 +28,7 @@ namespace CapaPresentacion.Controllers
         {
             if (ModelState.IsValid)
             {
-                appParticipante.Instancia.InsertarParticipante(participante);
+                AppParticipante.Instancia.InsertarParticipante(participante);
                 return RedirectToAction("Index");
             }
             return View(participante);
@@ -35,7 +36,7 @@ namespace CapaPresentacion.Controllers
 
         public ActionResult Eliminar(int id)
         {
-            appParticipante.Instancia.EliminarParticipante(id);
+            AppParticipante.Instancia.EliminarParticipante(id);
             return RedirectToAction("Index");
         }
     }

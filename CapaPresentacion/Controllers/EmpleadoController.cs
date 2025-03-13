@@ -6,13 +6,15 @@ using System.Web.Mvc;
 using CapaAplicacion;
 using CapaEntidades;
 
+
+
 namespace CapaPresentacion.Controllers
 {
     public class EmpleadoController : Controller
     {
         public ActionResult Index()
         {
-            var empleados = appEmpleado.Instancia.ListarEmpleados();
+            var empleados = AppEmpleados.Instancia.ListarEmpleados();
             return View(empleados);
         }
 
@@ -26,7 +28,7 @@ namespace CapaPresentacion.Controllers
         {
             if (ModelState.IsValid)
             {
-                appEmpleado.Instancia.InsertarEmpleado(empleado);
+                AppEmpleados.Instancia.InsertarEmpleado(empleado);
                 return RedirectToAction("Index");
             }
             return View(empleado);
@@ -34,7 +36,7 @@ namespace CapaPresentacion.Controllers
 
         public ActionResult Eliminar(int id)
         {
-            appEmpleado.Instancia.EliminarEmpleado(id);
+            AppEmpleados.Instancia.EliminarEmpleado(id);
             return RedirectToAction("Index");
         }
     }

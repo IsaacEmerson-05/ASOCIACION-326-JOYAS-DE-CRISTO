@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<CapaPresentacion.Models.ParticipanteModel>
+
+@{
     ViewBag.Title = "Lista de Participantes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -14,14 +16,23 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var participante in Model)
+        @if (Model != null)
+        {
+            foreach (var participante in Model)
+            {
+                <tr>
+                    <td>@participante.IdParticipante</td>
+                    <td>@participante.Nombre</td>
+                    <td>
+                        <a href="/Participante/Eliminar/@participante.IdParticipante" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
         {
             <tr>
-                <td>@participante.IdParticipante</td>
-                <td>@participante.Nombre</td>
-                <td>
-                    <a href="/Participante/Eliminar/@participante.IdParticipante" class="btn btn-danger">Eliminar</a>
-                </td>
+                <td colspan="3" class="text-center">No hay participantes disponibles.</td>
             </tr>
         }
     </tbody>
