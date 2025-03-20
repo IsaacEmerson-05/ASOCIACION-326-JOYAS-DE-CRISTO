@@ -235,6 +235,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActividadController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ParticipanteController.cs" />
@@ -300,6 +301,10 @@
     <Content Include="Views\Home\InicioSesion.cshtml" />
     <Content Include="Views\Empleado\Index.cshtml" />
     <Content Include="Views\Participante\Index.cshtml" />
+    <Content Include="Views\Actividad\Editar.cshtml" />
+    <Content Include="Views\Actividad\Insertar.cshtml" />
+    <Content Include="Views\Actividad\Lista.cshtml" />
+    <Content Include="Views\Actividad\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

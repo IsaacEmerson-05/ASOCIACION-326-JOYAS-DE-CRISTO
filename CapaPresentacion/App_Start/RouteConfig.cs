@@ -15,6 +15,12 @@ namespace CapaPresentacion
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Actividad",
+                url: "Actividad/{action}/{id}",
+                defaults: new { controller = "Actividad", action = "Lista", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "InicioSesion", id = UrlParameter.Optional }

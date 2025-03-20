@@ -1,0 +1,30 @@
+﻿@model List<CapaEntidades.Actividad>
+@{
+    ViewBag.Title = "Lista de Actividades";
+}
+<h2>Lista de Actividades</h2>
+<a href="@Url.Action("Insertar")" class="btn btn-success">Nueva Actividad</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Documento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var actividad in Model)
+        {
+            <tr>
+                <td>@actividad.Nombres</td>
+                <td>@actividad.Apellidos</td>
+                <td>@actividad.DocumentoIdentidad</td>
+                <td>
+                    <a href="@Url.Action("Editar", new { id = actividad.IdActividad })" class="btn btn-primary">Editar</a>
+                    <a href="@Url.Action("Eliminar", new { id = actividad.IdActividad })" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

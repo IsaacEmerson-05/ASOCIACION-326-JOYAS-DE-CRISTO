@@ -1,0 +1,14 @@
+﻿@model CapaEntidades.Actividad
+@{
+    ViewBag.Title = "Eliminar Actividad";
+}
+<h2>¿Estás seguro de eliminar esta actividad?</h2>
+<p><strong>Nombre:</strong> @Model.Nombres</p>
+<p><strong>Apellido:</strong> @Model.Apellidos</p>
+<p><strong>Documento:</strong> @Model.DocumentoIdentidad</p>
+
+<form method="post" action="@Url.Action("Eliminar", new { id = Model.IdActividad })">
+    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+    <a href="@Url.Action("Lista")" class="btn btn-secondary">Cancelar</a>
+</form>
+
