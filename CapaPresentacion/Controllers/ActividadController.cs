@@ -36,6 +36,10 @@ namespace CapaPresentacion.Controllers
         public ActionResult Editar(int id)
         {
             var actividad = AppActividad.Instancia.ListarActividades().FirstOrDefault(a => a.IdActividad == id);
+            if (actividad == null)
+            {
+                return RedirectToAction("Lista");
+            }
             return View(actividad);
         }
 
@@ -50,17 +54,32 @@ namespace CapaPresentacion.Controllers
             return View(actividad);
         }
 
-        public ActionResult Eliminar(int id)
+        public ActionResult Eliminar(int? id)
         {
-            var actividad = AppActividad.Instancia.ListarActividades().FirstOrDefault(a => a.IdActividad == id);
+            if (id == null)
+            {
+                return RedirectToAction("Lista");
+            }
+
+            var actividad = AppActividad.Instancia.ListarActividades().FirstOrDefault(a => a.IdActividad == id.Value);
+            if (actividad == null)
+            {
+                return RedirectToAction("Lista");
+            }
             return View(actividad);
         }
 
         [HttpPost, ActionName("Eliminar")]
-        public ActionResult ConfirmarEliminar(int id)
+        public ActionResult ConfirmarEliminar(int? id)
         {
-            AppActividad.Instancia.EliminarActividad(id);
+            if (id == null)
+            {
+                return RedirectToAction("Lista");
+            }
+
+            AppActividad.Instancia.EliminarActividad(id.Value);
             return RedirectToAction("Lista");
         }
     }
 }
+

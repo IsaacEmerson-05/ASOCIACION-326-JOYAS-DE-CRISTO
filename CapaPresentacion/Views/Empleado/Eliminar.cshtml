@@ -1,0 +1,12 @@
+﻿/* Eliminar.cshtml */
+@model CapaPresentacion.Models.EmpleadoModel
+@{
+    ViewBag.Title = "Eliminar Empleado";
+}
+
+<h2>¿Estás seguro de que deseas eliminar a @Model.Nombre?</h2>
+<form method="post" action="@Url.Action("Eliminar", "Empleado")">
+    <input type="hidden" name="IdEmpleado" value="@Model.IdEmpleado" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="@Url.Action("Lista", "Empleado")" class="btn btn-secondary">Cancelar</a>
+</form>

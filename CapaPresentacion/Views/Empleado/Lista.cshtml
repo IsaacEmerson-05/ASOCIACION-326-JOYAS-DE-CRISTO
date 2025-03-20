@@ -1,0 +1,28 @@
+﻿/* Lista.cshtml */
+@model IEnumerable<CapaPresentacion.Models.EmpleadoModel>
+@{
+    ViewBag.Title = "Lista de Empleados";
+}
+
+<h2>Lista de Empleados</h2>
+<a href="@Url.Action("Insertar", "Empleado")" class="btn btn-primary">Agregar Nuevo</a>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Cargo</th>
+        <th>Acciones</th>
+    </tr>
+    @foreach (var empleado in Model)
+    {
+        <tr>
+            <td>@empleado.IdEmpleado</td>
+            <td>@empleado.Nombre</td>
+            <td>@empleado.Cargo</td>
+            <td>
+                <a href="@Url.Action("Editar", "Empleado", new { id = empleado.IdEmpleado })" class="btn btn-warning">Editar</a>
+                <a href="@Url.Action("Eliminar", "Empleado", new { id = empleado.IdEmpleado })" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+    }
+</table>

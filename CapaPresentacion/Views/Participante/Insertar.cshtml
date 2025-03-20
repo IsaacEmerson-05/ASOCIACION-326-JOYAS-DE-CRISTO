@@ -1,0 +1,35 @@
+﻿@model List<CapaPresentacion.Models.ParticipanteModel>
+
+@{
+    ViewBag.Title = "Lista de Participantes";
+}
+
+<h2>Lista de Participantes</h2>
+
+<!-- Botón para agregar nuevo participante -->
+<p>
+    <a href="@Url.Action("Insertar", "Participante")" class="btn btn-success">Agregar Participante</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var participante in Model)
+        {
+            <tr>
+                <td>@participante.IdParticipante</td>
+                <td>@participante.Nombre</td>
+                <td>
+                    <a href="@Url.Action("Editar", "Participante", new { id = participante.IdParticipante })" class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("Eliminar", "Participante", new { id = participante.IdParticipante })" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este participante?');">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

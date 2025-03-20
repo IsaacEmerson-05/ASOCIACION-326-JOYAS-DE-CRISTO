@@ -1,0 +1,14 @@
+﻿@model CapaPresentacion.Models.ParticipanteModel
+
+@{
+    ViewBag.Title = "Eliminar Participante";
+}
+
+<h2>¿Estás seguro de que deseas eliminar a @Model.Nombre?</h2>
+<p>Esta acción no se puede deshacer.</p>
+
+<form method="post" action="@Url.Action("ConfirmarEliminar", "Participante")">
+    <input type="hidden" name="id" value="@Model.IdParticipante" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="@Url.Action("Index", "Participante")" class="btn btn-secondary">Cancelar</a>
+</form>

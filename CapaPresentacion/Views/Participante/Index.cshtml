@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<CapaEntidades.Participante>
 
 @{
-    ViewBag.Title = "Lista de Participantes";
+    ViewBag.Title = "Gestión de Participantes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Lista de Participantes</h2>
+
+<!-- Botón para agregar un nuevo participante -->
+<a href="@Url.Action("Crear", "Participante")" class="btn btn-success mb-3">Agregar Participante</a>
 
 <table class="table table-striped">
     <thead>
@@ -22,7 +25,7 @@
                 <td>@participante.IdParticipante</td>
                 <td>@participante.Nombres</td>
                 <td>
-                    <a href="/Participante/Eliminar/@participante.IdParticipante" class="btn btn-danger">Eliminar</a>
+                    <a href="@Url.Action("Eliminar", "Participante", new { id = participante.IdParticipante })" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }
